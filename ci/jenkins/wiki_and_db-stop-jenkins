@@ -1,0 +1,16 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    stages {
+		stage('Stop wiki and db') {
+			steps {
+				echo "=== stop wiki and db ==="
+				sh """
+				sudo docker-compose -f ./ci/docker-compose.yml down
+				"""
+			}
+		}
+	}
+}

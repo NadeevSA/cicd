@@ -4,9 +4,9 @@ pipeline {
     agent any
 
     stages {
-		stage('docker-compose') {
+		stage('Run wiki and db') {
 			steps {
-				echo "=== docker-compose ==="
+				echo "=== run wiki and db ==="
 				sh """
 				sudo docker-compose -f ./ci/docker-compose.yml up -d
 				"""
