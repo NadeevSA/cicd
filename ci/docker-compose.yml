@@ -33,24 +33,6 @@ services:
     ports:
       - 8084:8080
 
-  tomcat:
-    container_name: tomcat
-    depends_on:
-      - database
-    image: tomcat
-    ports:
-      - 8081:8080
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: my_wiki
-      MYSQL_USER: wikiuser
-      MYSQL_PASSWORD: secret
-    volumes:
-      - ../css:/usr/local/tomcat/webapps/paint/css/
-      - ../js:/usr/local/tomcat/webapps/paint/js/
-      - ../index.html:/usr/local/tomcat/webapps/paint/index.html
-      - ../target/demo.war:/usr/local/tomcat/webapps/demo.war
-
 volumes:
   images:
   db:

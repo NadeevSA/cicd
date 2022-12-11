@@ -1,0 +1,36 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    stages {
+		stage('Remove') {
+			steps {
+				echo "=== remove ==="
+				sh """
+				sudo docker stop app |
+				sudo docker rm app |
+				sudo docker rmi paint
+				"""
+			}
+		}
+
+		stage('Build') {
+			steps {
+				echo "=== build ==="
+				sh """
+				sudo docker build -f ../docker/paint.Dockerfile ../..
+				"""
+			}
+		}
+
+		stage('Run') {
+			steps {
+				echo "=== run ==="
+				sh """
+				sudo docker run -d -p 8081:8080 --name app paint
+				"""
+			}
+		}
+	}
+}
