@@ -1,14 +1,16 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent { dockerfile true }
 
-    stage("docker-compose") {
-        steps {
-            echo "=== docker-compose ==="
-            sh """
-            docker-compose -f ./docker-compose.yml up
-            """
-        }
-    }
+    stages {
+		stage('docker-compose') {
+			steps {
+				echo "=== docker-compose ==="
+				sh """
+				docker-compose -f ./docker-compose.yml up
+				"""
+			}
+		}
+	}
 }
