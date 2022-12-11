@@ -1,6 +1,8 @@
 #!groovy
 
 pipeline {
+    agent any
+
     stage("docker-compose") {
         steps {
             echo "=== docker-compose ==="
