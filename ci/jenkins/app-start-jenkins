@@ -4,17 +4,6 @@ pipeline {
     agent any
 
     stages {
-		stage('Remove') {
-			steps {
-				echo "=== remove ==="
-				sh """
-				sudo docker stop app |
-				sudo docker rm app |
-				sudo docker rmi paint
-				"""
-			}
-		}
-
 		stage('Build') {
 			steps {
 				echo "=== build ==="
