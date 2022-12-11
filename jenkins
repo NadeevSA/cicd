@@ -1,0 +1,10 @@
+pipeline {
+    stage("docker-compose") {
+        steps {
+            echo "=== docker-compose ==="
+            sh """
+            docker-compose -f ./docker-compose.yml up
+            """
+        }
+    }
+}

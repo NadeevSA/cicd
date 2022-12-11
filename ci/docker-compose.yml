@@ -1,0 +1,56 @@
+version: '3'
+services:
+  mediawiki:
+    container_name: media_wiki
+    image: mediawiki
+    restart: always
+    ports:
+      - 8082:80
+    links:
+      - database
+    volumes:
+      - images:/var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+
+  database:
+    container_name: mariadb
+    restart: always
+    build:
+      context: .
+      dockerfile: ./mariadb.Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_wiki
+      MYSQL_USER: wikiuser
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db:/var/lib/mysql
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  tomcat:
+    container_name: tomcat
+    depends_on:
+      - database
+    image: tomcat
+    ports:
+      - 8081:8080
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_wiki
+      MYSQL_USER: wikiuser
+      MYSQL_PASSWORD: secret
+    volumes:
+      - ../css:/usr/local/tomcat/webapps/paint/css/
+      - ../js:/usr/local/tomcat/webapps/paint/js/
+      - ../index.html:/usr/local/tomcat/webapps/paint/index.html
+      - ../target/demo.war:/usr/local/tomcat/webapps/demo.war
+
+volumes:
+  images:
+  db:
