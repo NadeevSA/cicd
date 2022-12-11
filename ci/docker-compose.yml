@@ -31,7 +31,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8084:8080
 
   tomcat:
     container_name: tomcat
