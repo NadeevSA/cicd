@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     stages {
-		when { return params.start_app }
+		when { expression { return params.start_app } }
 		stage('Start app') {
 			steps {
                 build job: 'Start/app-start-job'
