@@ -8,9 +8,9 @@ pipeline {
 			steps {
 				echo "=== remove ==="
 				sh """
-				sudo docker stop app |
+				sudo docker rmi paint |
 				sudo docker rm app |
-				sudo docker rmi paint
+				sudo docker stop app 
 				"""
 			}
 		}
