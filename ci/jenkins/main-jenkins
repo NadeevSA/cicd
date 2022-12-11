@@ -5,11 +5,15 @@ pipeline {
 
     stages {
 		stage('Start app') {
-			build job: 'Start/app-start-job'
+			steps {
+                build job: 'Start/app-start-job'
+            }
 		}
 
 		stage('Start wiki and db') {
-			build job: 'Start/wiki_and_db-start-job'
+			steps {
+                build job: 'Start/wiki_and_db-start-job'
+            }
 		}
 	}
 }
