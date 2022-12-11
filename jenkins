@@ -1,13 +1,11 @@
+#!groovy
+
 pipeline {
-    agent { none }
+    agent { 
+		label 'master'
+	}
 
     stages {
-	    stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-		
 		stage('docker-compose') {
 			steps {
 				echo "=== docker-compose ==="
