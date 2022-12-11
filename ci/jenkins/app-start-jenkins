@@ -8,7 +8,7 @@ pipeline {
 			steps {
 				echo "=== build ==="
 				sh """
-				sudo docker build -t paint -f ./paint.Dockerfile ../..
+				sudo docker build -t paint -f ./paint.dockerfile ../..
 				"""
 			}
 		}
