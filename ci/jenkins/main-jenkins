@@ -4,6 +4,7 @@ pipeline {
     agent any
 
     stages {
+		when { return params.start_app }
 		stage('Start app') {
 			steps {
                 build job: 'Start/app-start-job'
@@ -13,6 +14,18 @@ pipeline {
 		stage('Start wiki and db') {
 			steps {
                 build job: 'Start/wiki_and_db-start-job'
+            }
+		}
+
+		stage('Stop app') {
+			steps {
+                build job: 'Stop/app-stop-job'
+            }
+		}
+
+		stage('Stop wiki and db') {
+			steps {
+                build job: 'Stop/wiki_and_db-stop-job'
             }
 		}
 	}
