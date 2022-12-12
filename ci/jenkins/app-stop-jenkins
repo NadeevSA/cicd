@@ -4,13 +4,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Remove') {
+        stage('Stop container') {
 			steps {
-				echo "=== remove ==="
+				echo "=== stop container ==="
 				sh """
-				sudo docker rmi paint |
-				sudo docker rm app |
 				sudo docker stop app 
+				"""
+			}
+		}
+
+		stage('Remove container') {
+			steps {
+				echo "=== remove container ==="
+				sh """
+				sudo docker rm app
+				"""
+			}
+		}
+
+		stage('Remove image') {
+			steps {
+				echo "=== remove image ==="
+				sh """
+				sudo docker rmi paint
 				"""
 			}
 		}
