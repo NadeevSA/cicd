@@ -15,18 +15,21 @@ pipeline {
 			steps {
                 build job: 'Start/wiki_and_db-start-job'
             }
+			when { expression { return params.start_wiki_and_db } }
 		}
 
 		stage('Stop app') {
 			steps {
                 build job: 'Stop/app-stop-job'
             }
+			when { expression { return params.stop_app } }
 		}
 
 		stage('Stop wiki and db') {
 			steps {
                 build job: 'Stop/wiki_and_db-stop-job'
             }
+			when { expression { return params.stop_wiki_and_db } }
 		}
 	}
 }
