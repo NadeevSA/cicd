@@ -4,11 +4,11 @@ pipeline {
     agent any
 
     stages {
-		when { expression { return params.start_app } }
 		stage('Start app') {
 			steps {
                 build job: 'Start/app-start-job'
             }
+			when { expression { return params.start_app } }
 		}
 
 		stage('Start wiki and db') {
