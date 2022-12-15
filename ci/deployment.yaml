@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-paint
+spec:
+  template:
+    metadata:
+      labels:
+        app: app-paint
+    spec:
+      containers:
+      - name: app-paint
+        image: paint:latest
+      ports:
+      - containerPort: 8080
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-paint-app-service
+  labels:
+    app: app-paint
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+  selector:
+    app: app-paint

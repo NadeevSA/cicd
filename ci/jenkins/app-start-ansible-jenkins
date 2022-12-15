@@ -1,0 +1,24 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    stages {
+		stage('Build') {
+			steps {
+				echo "=== build ==="
+				sh """
+				sudo docker build -t paint -f ./ci/docker/paint.dockerfile .
+				"""
+			}
+		}
+
+        stage('ansible playbook'){
+			steps{
+			 	script{
+				    ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
+				}
+			}
+		}
+	}
+}
