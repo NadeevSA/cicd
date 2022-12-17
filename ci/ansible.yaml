@@ -9,7 +9,7 @@
   - name: run container
     shell:
       chdir: ./ci_repo_github/cicd/ci
-      cmd: "sudo docker-compose up -d"
+      cmd: "sudo docker-compose up -d | ugatu"
     register: output
 
   - name: debug
