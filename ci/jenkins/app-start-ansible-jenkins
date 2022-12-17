@@ -18,8 +18,7 @@ pipeline {
 			 	script{
 				    //ansiblePlaybook become: false, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
 					sh """
-					ansible-playbook ./ci/ansible.yaml -i ./ci/hosts --user=serezhka \
-                              -e "ansible_sudo_pass=ugatu"
+					ansible-playbook ./ci/ansible.yaml -i ./ci/hosts --user=serezhka
 					"""
 				}
 			}
