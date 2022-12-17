@@ -12,11 +12,6 @@
     shell:
       chdir: /home/serezhka/
       cmd: "docker-compose --version"
-
-  - name: run container
-    shell:
-      chdir: /home/serezhka/
-      cmd: "sudo docker-compose up -d"
     register: output
 
   - name: debug
