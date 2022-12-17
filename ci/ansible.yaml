@@ -12,3 +12,8 @@
     ansible.builtin.command:
       chdir: /home/serezhka/
       cmd: sudo docker-compose -f ./docker-compose.yml up -d
+    register: output
+
+  - name: debug
+    ansible.builtin.debug:
+      var: output
