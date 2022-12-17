@@ -3,15 +3,15 @@
   - name: copy Docker-compose
     ansible.builtin.template:
       src: docker-compose.yml
-      dest: /home/serezhka/docker-compose.yml
-      owner: serezhka
-      group: serezhka
+      dest: ./ci_repo_github/docker-compose.yml
+      owner: root
+      group: root
       mode: 0755
 
   - name: run container
     shell:
-      chdir: /home/serezhka/
-      cmd: "docker-compose up -d"
+      chdir: ./ci_repo_github/
+      cmd: "sudo docker-compose up -d"
     register: output
 
   - name: debug
