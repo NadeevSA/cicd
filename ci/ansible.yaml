@@ -2,7 +2,7 @@
   tasks:
   - name: copy Docker-compose
     ansible.builtin.template:
-      src: docker-compose.yml
+      src: docker-compose.yml.j2
       dest: /home/serezhka/docker-compose.yml
       owner: serezhka
       group: serezhka
@@ -11,7 +11,6 @@
   - name: run container
     ansible.builtin.command:
       chdir: /home/serezhka/
-    shell:
       cmd: "sudo docker-compose up -d"
     register: output
 
