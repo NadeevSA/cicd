@@ -16,7 +16,7 @@ pipeline {
         stage('ansible playbook'){
 			steps{
 			 	script{
-				    ansiblePlaybook become: true, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
+				    ansiblePlaybook become: true, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml' --extra-vars "ansible_sudo_pass=ugatu"
 				}
 			}
 		}
