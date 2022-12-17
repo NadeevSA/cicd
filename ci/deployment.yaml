@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: app-paint
-        image: paint1:latest
+        image: paint:latest
       ports:
       - containerPort: 8080
 
