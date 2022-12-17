@@ -17,11 +17,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-paint-app-service
+  name: app-paint-service
   labels:
     app: app-paint
 spec:
-  type: NodePort
   ports:
   - port: 8082
   selector:
