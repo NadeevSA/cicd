@@ -18,7 +18,7 @@ pipeline {
 			 	script{
 				    //ansiblePlaybook become: false, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
 					sh """
-					on process -f "./ci/deployment.yaml" | oc apply -f -
+					on process -f ./ci/deployment.yaml
 					"""
 				}
 			}
