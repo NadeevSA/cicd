@@ -9,6 +9,7 @@
       mode: 0755
   
   - name: run container
+    become: True
     ansible.builtin.command:
       chdir: /home/serezhka/
       cmd: sudo docker-compose up -d
