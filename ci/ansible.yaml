@@ -4,8 +4,8 @@
     ansible.builtin.template:
       src: docker-compose.yml
       dest: /home/serezhka/docker-compose.yml
-      owner: root
-      group: root
+      owner: serezhka
+      group: serezhka
       mode: 0755
   
   - name: run container
