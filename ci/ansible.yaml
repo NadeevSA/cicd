@@ -1,10 +1,14 @@
 - hosts: servers
   tasks:
-  - name: copy deployment file to kubernetes master 
-    copy:
-      src: deployment.yaml
-      dest: /root/
-  - name: delete the previous of kubernetes objects 
-    command: kubectl delete -f /root/deployment.yaml
-  - name: Create a Deployment by reading the definition from a local file
-    command: kubectl apply -f /root/deployment.yaml
+  - name: copy Docker-compose
+    ansible.buildtin.template:
+      src: ./docker/docker-compose.yml
+      dest: /home/serezhka/docker-compose.yml
+      owner: root
+      group: root
+      mode: 0755
+  
+  - name: run container
+    ansible.builtin.command:
+      chdir: /home/serezhka/
+      cmd: docker-compose up -d
