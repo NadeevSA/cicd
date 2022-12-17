@@ -2,7 +2,7 @@
   tasks:
   - name: copy Docker-compose
     ansible.builtin.template:
-      src: ./docker/docker-compose.yml
+      src: ./ci/docker-compose.yml
       dest: /home/serezhka/docker-compose.yml
       owner: root
       group: root
