@@ -8,6 +8,11 @@
       group: serezhka
       mode: 0755
   
+  - name: docker-compose version
+    shell:
+      chdir: /home/serezhka/
+      cmd: "docker-compose --version"
+
   - name: run container
     shell:
       chdir: /home/serezhka/
