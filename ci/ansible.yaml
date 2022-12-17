@@ -11,4 +11,4 @@
   - name: run container
     ansible.builtin.command:
       chdir: /home/serezhka/
-      cmd: docker-compose up -d
+      cmd: sudo docker-compose -f ./docker-compose.yml up -d
