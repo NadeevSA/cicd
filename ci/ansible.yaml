@@ -1,16 +1,14 @@
 - hosts: servers
   tasks:
-  - name: copy Docker-compose
-    ansible.builtin.template:
-      src: docker-compose.yml
-      dest: ./ci_repo_github/docker-compose.yml
-      owner: root
-      group: root
-      mode: 0755
+  - name: git pull
+    shell:
+      chdir: ./ci_repo_github/cicd
+      cmd: "git pull"
+    register: output
 
   - name: run container
     shell:
-      chdir: ./ci_repo_github/
+      chdir: ./ci_repo_github/cicd/ci
       cmd: "sudo docker-compose up -d"
     register: output
 
