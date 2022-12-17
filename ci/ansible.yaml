@@ -4,7 +4,11 @@
     shell:
       chdir: ./ci_repo_github/cicd
       cmd: "git pull"
-    register: output
+
+  - name: build image
+    shell:
+      chdir: ./ci_repo_github/cicd
+      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
 
   - name: run container
     shell:
@@ -12,6 +16,6 @@
       cmd: "sudo docker-compose up -d"
     register: output
 
-  - name: debug
+  - name: contaier
     ansible.builtin.debug:
       var: output
