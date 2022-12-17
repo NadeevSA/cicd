@@ -16,10 +16,11 @@ pipeline {
         stage('ansible playbook'){
 			steps{
 			 	script{
-				    ansiblePlaybook become: false, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
-					//sh """
-					//kubectl apply -f ./ci/deployment.yaml
-					//"""
+				    //ansiblePlaybook become: false, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
+					sh """
+					ansible-playbook /ci/ansible.yml -i /ci/hosts.ini --user=serezhka \
+                              --extra-vars "ansible_sudo_pass=ugatu"
+					"""
 				}
 			}
 		}
