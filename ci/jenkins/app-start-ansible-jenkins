@@ -16,7 +16,7 @@ pipeline {
         stage('ansible playbook'){
 			steps{
 			 	script{
-				    ansiblePlaybook become: true, installation: './ci/ansible', inventory: 'hosts', playbook: './ci/ansible.yaml'
+				    ansiblePlaybook become: true, installation: 'ansible', inventory: './ci/hosts', playbook: './ci/ansible.yaml'
 				}
 			}
 		}
