@@ -13,15 +13,3 @@ spec:
         image: paint:latest
       ports:
       - containerPort: 8080
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: app-paint-service
-  labels:
-    app: app-paint
-spec:
-  ports:
-  - port: 8082
-  selector:
-    app: app-paint
