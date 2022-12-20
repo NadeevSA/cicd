@@ -1,10 +1,42 @@
 - hosts: servers
   tasks:
 
+  - name: copy dockerfile
+    ansible.builtin.template:
+      src: ./docker/paint.dockerfile
+      dest: /home/serezhka/paint.dockerfile
+      owner: serezhka
+      group: serezhka
+      mode: 0755
+
+  - name: copy index.html
+    ansible.builtin.template:
+      src: ../
+      dest: /home/serezhka/index.html
+      owner: serezhka
+      group: serezhka
+      mode: 0755
+
+  - name: copy css files
+    ansible.builtin.template:
+      src: ../css/
+      dest: /home/serezhka/css
+      owner: serezhka
+      group: serezhka
+      mode: 0755
+
+  - name: copy js files
+    ansible.builtin.template:
+      src: ../js/
+      dest: /home/serezhka/js
+      owner: serezhka
+      group: serezhka
+      mode: 0755
+
   - name: build image
     shell:
-      src: ./ci/docker/
-      cmd: "sudo docker build -t paint -f  ."
+      src: ./docker/paint.dockerfile
+      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
 
   - name: run container
     shell:
