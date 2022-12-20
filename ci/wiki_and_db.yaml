@@ -2,7 +2,7 @@
   tasks:
   - name: copy dockerfile
     ansible.builtin.template:
-      src: ./ci/docker/paint.dockerfile
+      src: ./docker/paint.dockerfile
       dest: /home/paint.dockerfile
       owner: root
       group: root

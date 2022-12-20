@@ -2,7 +2,7 @@
   tasks:
   - name: copy dockerfile
     ansible.builtin.template:
-      src: ./ci/docker/paint.dockerfile
+      src: ./docker/paint.dockerfile
       dest: /home/paint.dockerfile
       owner: root
       group: root
@@ -11,7 +11,7 @@
   - name: build image
     shell:
       chdir: /home/
-      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
+      cmd: "sudo docker build -t paint -f paint.dockerfile ."
 
   - name: run container
     shell:
