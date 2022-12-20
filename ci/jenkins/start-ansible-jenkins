@@ -8,8 +8,8 @@ pipeline {
 			steps{
 			 	script{
 					sh """
-					ansible-playbook ./ci/app.yaml -i ./ci/hosts -M ../ --user=serezhka
-					ansible-playbook ./ci/wiki_and_db.yaml -i ./ci/hosts --user=serezhka
+					ansible-playbook ./app.yaml -i ./ci/hosts --user=serezhka
+					ansible-playbook ./wiki_and_db.yaml -i ./ci/hosts --user=serezhka
 					"""
 				}
 			}
