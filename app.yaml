@@ -36,7 +36,7 @@
   - name: build image
     shell:
       chdir: /home/serezhka/
-      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
+      cmd: "sudo docker build -t paint -f ./paint.dockerfile ."
 
   - name: run container
     shell:
