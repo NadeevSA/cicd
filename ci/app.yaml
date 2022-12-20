@@ -3,7 +3,8 @@
 
   - name: build image
     shell:
-      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
+      src: ./ci/docker/
+      cmd: "sudo docker build -t paint -f  ."
 
   - name: run container
     shell:
