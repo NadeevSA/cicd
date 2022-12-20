@@ -5,8 +5,8 @@
     ansible.builtin.file:
       src: ./ci/LocalSettings.php
       dest: /home/serezhka/
-      owner: serezhka
-      group: serezhka
+      owner: root
+      group: root
       mode: 0755
  
   - name: copy docker-compose 
