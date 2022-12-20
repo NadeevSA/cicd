@@ -3,17 +3,17 @@
   - name: copy dockerfile
     ansible.builtin.template:
       src: ./docker/paint.dockerfile
-      dest: /home/ubuntu/paint.dockerfile
+      dest: /home/serezhka/paint.dockerfile
       owner: root
       group: root
       mode: 0755
 
   - name: build image
     shell:
-      chdir: /home/ubuntu/
+      chdir: /home/serezhka/
       cmd: "sudo docker build -t paint -f paint.dockerfile ."
 
   - name: run container
     shell:
-      chdir: /home/ubuntu/
+      chdir: /home/serezhka/
       cmd: "sudo docker run -d -p 8081:8080 --name app paint"
