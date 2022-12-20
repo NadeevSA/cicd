@@ -1,27 +1,20 @@
 - hosts: servers
   tasks:
-  - name: create directory
-    ansible.builtin.file:
-      path: /home/test
-      owner: root
-      group: root
-      state: directory
-      mode: 0755
 
   - name: copy dockerfile
     ansible.builtin.template:
       src: ./docker/paint.dockerfile
-      dest: /home/test/paint.dockerfile
-      owner: root
-      group: root
+      dest: /home/serezhka/paint.dockerfile
+      owner: serezhka
+      group: serezhka
       mode: 0755
 
   - name: build image
     shell:
-      chdir: /home/test/
+      chdir: /home/serezhka/
       cmd: "sudo docker build -t paint -f paint.dockerfile ."
 
   - name: run container
     shell:
-      chdir: /home/test/
+      chdir: /home/serezhka/
       cmd: "sudo docker run -d -p 8081:8080 --name app paint"
