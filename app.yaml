@@ -19,7 +19,7 @@
 
   - name: copy css files
     ansible.builtin.copy:
-      src: ../cicd/css
+      src: ./css
       dest: /home/serezhka/css
       owner: serezhka
       group: serezhka
