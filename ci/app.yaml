@@ -1,18 +1,9 @@
 - hosts: servers
   tasks:
 
-  - name: copy dockerfile
-    ansible.builtin.template:
-      src: ./docker/paint.dockerfile
-      dest: /home/serezhka/paint.dockerfile
-      owner: serezhka
-      group: serezhka
-      mode: 0755
-
   - name: build image
     shell:
-      chdir: /home/serezhka/
-      cmd: "sudo docker build -t paint -f paint.dockerfile ."
+      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
 
   - name: run container
     shell:
