@@ -3,12 +3,12 @@
   - name: copy dockerfile
     ansible.builtin.template:
       src: ./docker/paint.dockerfile
-      dest: /home/paint.dockerfile
+      dest: /home/ubuntu/paint.dockerfile
       owner: root
       group: root
       mode: 0755
 
   - name: run docker-compose
     shell:
-      chdir: /home/
+      chdir: /home/ubuntu/
       cmd: "sudo docker-compose up -d"
