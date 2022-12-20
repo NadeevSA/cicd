@@ -4,8 +4,8 @@
     ansible.builtin.template:
       src: ./ci/docker/paint.dockerfile
       dest: /home/serezhka/paint.dockerfile
-      owner: root
-      group: root
+      owner: serezhka
+      group: serezhka
       mode: 0755
 
   - name: run docker-compose
