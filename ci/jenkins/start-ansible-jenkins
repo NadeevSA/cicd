@@ -1,0 +1,18 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    stages {
+        stage('run ansible playbook'){
+			steps{
+			 	script{
+					sh """
+					ansible-playbook ./ci/app.yaml -i ./ci/hosts --user=serezhka
+					ansible-playbook ./ci/wiki_and_db.yaml -i ./ci/hosts --user=serezhka
+					"""
+				}
+			}
+		}
+	}
+}
