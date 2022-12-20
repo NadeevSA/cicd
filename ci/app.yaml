@@ -11,7 +11,7 @@
 
   - name: copy index.html
     ansible.builtin.template:
-      src: ./ci/
+      src: ../
       dest: /home/serezhka/index.html
       owner: serezhka
       group: serezhka
@@ -19,7 +19,7 @@
 
   - name: copy css files
     ansible.builtin.template:
-      src: ./ci/css/
+      src: ../css/
       dest: /home/serezhka/css
       owner: serezhka
       group: serezhka
@@ -27,7 +27,7 @@
 
   - name: copy js files
     ansible.builtin.template:
-      src: ./ci/js/
+      src: ../js/
       dest: /home/serezhka/js
       owner: serezhka
       group: serezhka
