@@ -19,14 +19,14 @@
 
   - name: copy css files
     ansible.builtin.copy:
-      src: ./css
+      src: ../cicd/css
       dest: /home/serezhka/css
       owner: serezhka
       group: serezhka
       mode: 0755
 
   - name: copy js files
-    ansible.builtin.template:
+    ansible.builtin.copy:
       src: ./js
       dest: /home/serezhka/js
       owner: serezhka
