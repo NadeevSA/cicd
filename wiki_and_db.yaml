@@ -1,9 +1,9 @@
 - hosts: servers
   tasks:
-  - name: copy dockerfile
+  - name: copy docker-compose 
     ansible.builtin.template:
-      src: ./ci/docker/paint.dockerfile
-      dest: /home/serezhka/paint.dockerfile
+      src: ./ci/docker-compose.yml
+      dest: /home/serezhka/docker-compose.yml
       owner: serezhka
       group: serezhka
       mode: 0755
