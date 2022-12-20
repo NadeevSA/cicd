@@ -2,9 +2,9 @@
   tasks:
 
   - name: copy LocalSettings.php
-    ansible.builtin.file:
+    ansible.builtin.template:
       src: ./ci/LocalSettings.php
-      dest: /home/serezhka/
+      dest: /home/serezhka/LocalSettings.php
       owner: root
       group: root
       mode: 0755
