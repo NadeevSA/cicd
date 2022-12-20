@@ -1,7 +1,7 @@
 - hosts: servers
   tasks:
 
-- name: copy LocalSettings.php
+  - name: copy LocalSettings.php
     ansible.builtin.template:
       src: ./ci/LocalSettings.php
       dest: /home/serezhka/LocalSettings.php
