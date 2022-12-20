@@ -14,10 +14,7 @@ services:
 
   database:
     container_name: mariadb
-    restart: always
-    build:
-      context: .
-      dockerfile: ./mariadb.Dockerfile
+    image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: my_wiki
