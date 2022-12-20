@@ -1,8 +1,0 @@
-- hosts: servers
-  tasks:
-  - name: copy deployment file to kubernetes master 
-    copy:
-      src: deployment.yaml
-      dest: /home/serezhka/
-  - name: Create a Deployment by reading the definition from a local file
-    command: sudo kubectl apply -f /home/serezhka/deployment.yaml

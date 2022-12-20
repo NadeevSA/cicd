@@ -1,0 +1,14 @@
+- hosts: servers
+  tasks:
+  - name: copy dockerfile
+    ansible.builtin.template:
+      scr: ./ci/docker/paint.dockerfile
+      dest: /home/paint.dockerfile
+      owner: root
+      group: root
+      mode: 0755
+
+  - name: run docker-compose
+    shell:
+      chdir: /home/
+      cmd: "sudo docker-compose up -d"

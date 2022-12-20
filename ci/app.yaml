@@ -1,0 +1,19 @@
+- hosts: servers
+  tasks:
+  - name: copy dockerfile
+    ansible.builtin.template:
+      scr: ./ci/docker/paint.dockerfile
+      dest: /home/paint.dockerfile
+      owner: root
+      group: root
+      mode: 0755
+
+  - name: build image
+    shell:
+      chdir: /home/
+      cmd: "sudo docker build -t paint -f ./ci/docker/paint.dockerfile ."
+
+  - name: run container
+    shell:
+      chdir: /home/
+      cmd: "sudo docker run -d -p 8081:8080 --name app paint"
