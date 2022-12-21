@@ -12,5 +12,38 @@ pipeline {
 				"""
 			}
 		}
+
+        stage('Stop containers') {
+			steps {
+				echo "=== stop containers ==="
+				sh """
+				sudo docker stop media_wiki |
+				sudo docker stop mariadb |
+				sudo docker stop adminer | 
+				"""
+			}
+		}
+
+		stage('Remove containers') {
+			steps {
+				echo "=== remove containers ==="
+				sh """
+				sudo docker rm media_wiki |
+				sudo docker rm mariadb |
+				sudo docker rm adminer |
+				"""
+			}
+		}
+
+		stage('Remove images') {
+			steps {
+				echo "=== remove image ==="
+				sh """
+				sudo docker rmi mediawiki |
+				sudo docker rmi mariadb |
+				sudo docker rmi adminer |
+				"""
+			}
+		}
 	}
 }
