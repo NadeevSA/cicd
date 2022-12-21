@@ -30,7 +30,7 @@ $wgMetaNamespace = "Вики_для_лабы";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://192.168.0.106:8082";
+$wgServer = "http://192.168.0.101:8082";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -100,14 +100,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "d43dcc0d9fa096ec305f3c0b1eeedf0faa3b3d66bd58fc57ba83e45aebd8c6ef";
+$wgSecretKey = "caa01d4284ecdbc2376d2d0ece283d0b4981d7178fdf7dd36a00b8a70a199a2d";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "ea700848ed59c326";
+$wgUpgradeKey = "f63d6a4c56eb7f12";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
