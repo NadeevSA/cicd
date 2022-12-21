@@ -17,9 +17,9 @@ pipeline {
 			steps {
 				echo "=== stop containers ==="
 				sh """
-				sudo docker stop media_wiki |
-				sudo docker stop mariadb |
-				sudo docker stop adminer | 
+				sudo docker stop media_wiki
+				sudo docker stop mariadb
+				sudo docker stop adminer 
 				"""
 			}
 		}
@@ -28,9 +28,9 @@ pipeline {
 			steps {
 				echo "=== remove containers ==="
 				sh """
-				sudo docker rm media_wiki |
-				sudo docker rm mariadb |
-				sudo docker rm adminer |
+				sudo docker rm media_wiki
+				sudo docker rm mariadb
+				sudo docker rm adminer
 				"""
 			}
 		}
@@ -39,9 +39,9 @@ pipeline {
 			steps {
 				echo "=== remove image ==="
 				sh """
-				sudo docker rmi mediawiki |
-				sudo docker rmi mariadb |
-				sudo docker rmi adminer |
+				sudo docker rmi mediawiki
+				sudo docker rmi mariadb
+				sudo docker rmi adminer
 				"""
 			}
 		}
