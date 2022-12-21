@@ -3,7 +3,7 @@
 
   - name: git pull
     shell:
-      chdir: /ci_repo_github/cicd
+      chdir: /home/serezhka/ci_repo_github/cicd
       cmd: "git pull"
 
   - name: run docker-compose
