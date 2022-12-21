@@ -1,21 +1,10 @@
 - hosts: servers
   tasks:
 
-  - name: copy LocalSettings.php
-    ansible.builtin.template:
-      src: ./ci/LocalSettings.php
-      dest: /home/serezhka/LocalSettings.php
-      owner: serezhka
-      group: serezhka
-      mode: 0755
- 
-  - name: copy docker-compose 
-    ansible.builtin.template:
-      src: ./ci/docker-compose.yml
-      dest: /home/serezhka/docker-compose.yml
-      owner: serezhka
-      group: serezhka
-      mode: 0755
+  - name: git pull
+    shell:
+      chdir: /ci_repo_github/cicd
+      cmd: "git pull"
 
   - name: run docker-compose
     shell:
