@@ -10,7 +10,7 @@
       chdir: /home/serezhka/ansible/
       cmd: "sudo docker rm app"
 
-- name: delete image
+  - name: delete image
     shell:
       chdir: /home/serezhka/ansible/
       cmd: "sudo docker rmi paint"
