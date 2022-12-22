@@ -8,7 +8,7 @@ pipeline {
 			steps {
 				echo "=== login ==="
 				sh """
-				sudo docker login 192.168.102.69:5000 -u admin -p admin
+				sudo docker login 192.168.0.108:5000 -u admin -p admin
 				"""
 			}
 			when { expression { return params.start_app } }
@@ -28,7 +28,7 @@ pipeline {
 			steps {
 				echo "=== change tag ==="
 				sh """
-				sudo docker tag paint 192.168.102.69:5000/paint 
+				sudo docker tag paint 192.168.0.108:5000/paint 
 				"""
 			}
 			when { expression { return params.start_app } }
@@ -38,7 +38,7 @@ pipeline {
 			steps {
 				echo "=== push ==="
 				sh """
-				sudo docker push 192.168.102.69:5000/paint
+				sudo docker push 192.168.0.108:5000/paint
 				"""
 			}
 			when { expression { return params.start_app } }
