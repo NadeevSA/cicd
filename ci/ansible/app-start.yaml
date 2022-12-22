@@ -24,6 +24,3 @@
     shell:
       chdir: /home/serezhka/ansible/
       cmd: "sudo docker run -d -p 8081:8080 --name app paint"
-
-parameters:
-- name: DOCKER_REGISTRY
