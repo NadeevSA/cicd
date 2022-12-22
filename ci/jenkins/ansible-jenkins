@@ -48,7 +48,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
-					ansible-playbook ./app-start.yaml -i ./ci/hosts
+					ansible-playbook ./ci/ansible/app-start.yaml -i ./ci/hosts
 					"""
 				}
 			}
@@ -59,7 +59,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
-					ansible-playbook ./app-stop.yaml -i ./ci/hosts
+					ansible-playbook ./ci/ansible/app-stop.yaml -i ./ci/hosts
 					"""
 				}
 			}
