@@ -48,7 +48,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
-					ansible-playbook ./ci/ansible/app-start.yaml -p 192.168.0.108:5000 -i ./ci/hosts
+					ansible-playbook ./ci/ansible/app-start.yaml --extra-vars "DOCKER_REGISTRY=192.168.0.108:5000" -i ./ci/hosts
 					"""
 				}
 			}
@@ -59,7 +59,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
-					ansible-playbook ./ci/ansible/app-stop.yaml -i ./ci/hosts -p 192.168.0.108:5000
+					ansible-playbook ./ci/ansible/app-stop.yaml --extra-vars "DOCKER_REGISTRY=192.168.0.108:5000" -i ./ci/hosts
 					"""
 				}
 			}
