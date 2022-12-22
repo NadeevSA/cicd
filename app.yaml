@@ -14,11 +14,11 @@
 
   - name: pull image
     shell:
-      cmd: "sudo docker pull 192.168.0.108:5000/app"
+      cmd: "sudo docker pull 192.168.0.108:5000/paint"
 
   - name: change tag image
     shell:
-      cmd: "sudo docker tag 192.168.0.108:5000/app app"
+      cmd: "sudo docker tag 192.168.0.108:5000/paint paint"
 
   - name: run container
     shell:
