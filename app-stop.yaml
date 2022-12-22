@@ -1,0 +1,16 @@
+- hosts: servers
+  tasks:
+  - name: stop container
+    shell:
+      chdir: /home/serezhka/ansible/
+      cmd: "sudo docker stop app"
+
+  - name: delete container
+    shell:
+      chdir: /home/serezhka/ansible/
+      cmd: "sudo docker rm app"
+
+- name: delete image
+    shell:
+      chdir: /home/serezhka/ansible/
+      cmd: "sudo docker rmi paint"
