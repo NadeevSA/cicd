@@ -9,7 +9,6 @@ pipeline {
 			 	script{
 					sh """
 					ansible-playbook ./app.yaml -i ./ci/hosts
-					ansible-playbook ./wiki_and_db.yaml -i ./ci/hosts
 					"""
 				}
 			}
