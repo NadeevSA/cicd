@@ -1,5 +1,5 @@
 [servers]
-server1 ansible_host=10.226.118.164 ansible_user=serezhka ansible_password=ugatu ansible_sudo_pass=ugatu
+server1 ansible_host=192.168.0.104 ansible_user=serezhka ansible_password=ugatu ansible_sudo_pass=ugatu
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
