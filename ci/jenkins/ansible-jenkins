@@ -1,0 +1,69 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    stages {
+		stage('docker login') {
+			steps {
+				echo "=== login ==="
+				sh """
+				sudo docker login 192.168.0.108:5000 -u admin -p admin
+				"""
+			}
+			when { expression { return params.start_app } }
+		}
+
+		stage('Build image') {
+			steps {
+				echo "=== build ==="
+				sh """
+				sudo docker build -t paint -f ./ci/docker/paint.dockerfile .
+				"""
+			}
+			when { expression { return params.start_app } }
+		}
+
+		stage('change tag image') {
+			steps {
+				echo "=== change tag ==="
+				sh """
+				sudo docker tag paint 192.168.0.108:5000/paint 
+				"""
+			}
+			when { expression { return params.start_app } }
+		}
+
+		stage('push image in registry') {
+			steps {
+				echo "=== push ==="
+				sh """
+				sudo docker push 192.168.0.108:5000/paint
+				"""
+			}
+			when { expression { return params.start_app } }
+		}
+
+        stage('run ansible playbook'){
+			steps{
+			 	script{
+					sh """
+					ansible-playbook ./app-start.yaml -i ./ci/hosts
+					"""
+				}
+			}
+			when { expression { return params.start_app } }
+		}
+
+		stage('stop ansible playbook'){
+			steps{
+			 	script{
+					sh """
+					ansible-playbook ./app-stop.yaml -i ./ci/hosts
+					"""
+				}
+			}
+			when { expression { return params.stop_app } }
+		}
+	}
+}
