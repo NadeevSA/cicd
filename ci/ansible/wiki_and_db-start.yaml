@@ -1,0 +1,14 @@
+- hosts: servers
+  tasks:
+  - name: copy dockerfile
+    ansible.builtin.copy:
+      src: ../docker/docker-compose.dockerfile
+      dest: /home/serezhka/ansible/docker-compose.dockerfile
+      owner: serezhka
+      group: serezhka
+      mode: 0755
+
+  - name: run docker-compose
+    shell:
+      chdir: /home/serezhka/ansible
+      cmd: "sudo docker-compose up -d"
