@@ -2,7 +2,7 @@
   tasks:
   - name: docker login
     shell:
-      cmd: "sudo docker login 192.168.0.108:5000 -u admin -p admin"
+      cmd: "sudo docker login $DOCKER_REGISTRY -u admin -p admin"
 
   - name: copy dockerfile
     ansible.builtin.copy:
