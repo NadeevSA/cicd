@@ -6,7 +6,7 @@
 
   - name: copy dockerfile
     ansible.builtin.copy:
-      src: ./ci/docker/paint.dockerfile
+      src: ../docker/paint.dockerfile
       dest: /home/serezhka/ansible/paint.dockerfile
       owner: serezhka
       group: serezhka
