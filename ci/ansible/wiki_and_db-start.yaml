@@ -2,8 +2,8 @@
   tasks:
   - name: copy docker-compose
     ansible.builtin.copy:
-      src: ../docker/docker-compose.yaml
-      dest: /home/serezhka/ansible/docker-compose.yaml
+      src: ../docker/docker-compose.yml
+      dest: /home/serezhka/ansible/docker-compose.yml
       owner: serezhka
       group: serezhka
       mode: 0755
