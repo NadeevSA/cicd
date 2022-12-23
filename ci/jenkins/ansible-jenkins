@@ -48,6 +48,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
+					ansible-playbook ./ci/ansible/app-start.yaml --extra-vars "DOCKER_REGISTRY=10.226.118.163:5000" -i ./ci/hosts
 					ansible-playbook ./ci/ansible/wiki_and_db-start.yaml -i ./ci/hosts
 					"""
 				}
@@ -59,6 +60,7 @@ pipeline {
 			steps{
 			 	script{
 					sh """
+					ansible-playbook ./ci/ansible/app-stop.yaml --extra-vars "DOCKER_REGISTRY=10.226.118.163:5000" -i ./ci/hosts
 					ansible-playbook ./ci/ansible/wiki_and_db-stop.yaml -i ./ci/hosts
 					"""
 				}
