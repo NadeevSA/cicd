@@ -1,5 +1,9 @@
 #!groovy
 
+environment {
+	IP = ${env.IP}
+}
+
 pipeline {
     agent any
 
@@ -7,8 +11,8 @@ pipeline {
 		stage('docker login') {
 			steps {
 				echo "=== login ==="
-				sh """
-				sudo docker login 10.226.118.163:5000 -u admin -p admin
+				sh """.
+				sudo docker login ${IP}:5000 -u admin -p admin
 				"""
 			}
 			when { expression { return params.start_app } }
